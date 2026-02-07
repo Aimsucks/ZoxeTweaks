@@ -358,11 +358,11 @@ function ZT:OnInitialize()
     end
 
     AceConfig:RegisterOptionsTable("ZoxeTweaks", options)
-    AceConfigDialog:AddToBlizOptions("ZoxeTweaks", "ZoxeTweaks")
+    local optionsFrame = AceConfigDialog:AddToBlizOptions("ZoxeTweaks", "ZoxeTweaks")
 
     self:RegisterChatCommand("zt", function(input)
         if not input or input:trim() == "" then
-            Settings.OpenToCategory("ZoxeTweaks")
+            Settings.OpenToCategory(optionsFrame.name)
         else
             AceConfigCmd.HandleCommand(ZT, "zt", "ZoxeTweaks", input)
         end
